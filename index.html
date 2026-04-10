@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Bridge - Home</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="home-page">
+  <div class="page-shell">
+    <header class="site-header">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">🍽️</span>
+        <span>Food Bridge</span>
+      </a>
+
+      <nav class="site-nav">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#trusted">Trusted</a>
+        <a href="login.html">Sign In</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="login.html" class="nav-button button-secondary">Sign Up</a>
+      </div>
+    </header>
+
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <span class="eyebrow">Share surplus food. Build hope.</span>
+        <h1>Turn Extra Food into Hope</h1>
+        <p>Choose your role and connect with our community</p>
+
+        <div class="hero-buttons">
+          <a href="#" onclick="selectRole('donor'); return false;" class="hero-button hero-button-donor">
+            <i class="fas fa-gift"></i> I Want to Donate Food
+          </a>
+          <a href="#" onclick="selectRole('ngo'); return false;" class="hero-button hero-button-ngo">
+            <i class="fas fa-handshake"></i> I'm an NGO Partner
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-visual-panel">
+          <div class="hero-tile hero-tile-top">
+            <span class="tile-icon">🥗</span>
+            <div>
+              <strong>Upload Food</strong>
+              <p>Share your surplus meals quickly.</p>
+            </div>
+          </div>
+
+          <div class="hero-illustration">
+            <div class="hero-illustration-glow"></div>
+            <div class="hero-illustration-card">
+              <div class="hero-illustration-badge">🤝</div>
+              <p>Trusted NGO pickup and delivery.</p>
+            </div>
+          </div>
+
+          <div class="hero-tile hero-tile-bottom">
+            <span class="tile-icon">🚚</span>
+            <div>
+              <strong>NGO Pickup</strong>
+              <p>Fast, safe collection by partners.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section-block">
+      <div class="section-heading">
+        <span class="section-label">How it works</span>
+        <h2>Our simple three-step process</h2>
+      </div>
+
+      <div class="feature-cards-grid">
+        <article class="feature-card">
+          <div class="badge">1</div>
+          <h3>Upload Food</h3>
+          <p>Tell us what you have, share pictures, and list the pickup details.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="badge">2</div>
+          <h3>AI Analysis</h3>
+          <p>Our platform helps verify donations and match the right NGO partner.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="badge">3</div>
+          <h3>NGO Pickup</h3>
+          <p>Verified NGOs collect the donation and deliver it safely to communities.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="why-us" class="section-block section-alt">
+      <div class="section-heading">
+        <span class="section-label">Why choose Food Bridge?</span>
+        <h2>Helping communities while reducing waste</h2>
+      </div>
+
+      <div class="feature-cards-grid feature-cards-grid-3">
+        <article class="value-card">
+          <div class="value-icon">🥕</div>
+          <h3>Reduce Food Waste</h3>
+          <p>Give extra meals a second life instead of letting them go to waste.</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-icon">❤️</div>
+          <h3>Help Those in Need</h3>
+          <p>Support families and communities through trusted NGO distribution.</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-icon">👥</div>
+          <h3>Build Community</h3>
+          <p>Create a stronger local network around food support and care.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="trusted" class="trusted-section">
+      <div class="section-heading centered">
+        <span class="section-label">Trusted by</span>
+        <h2>Leading partners rely on Food Bridge</h2>
+      </div>
+
+      <div class="trusted-grid">
+        <div class="trusted-card">Feeding Feeding</div>
+        <div class="trusted-card">Akshaya Akhavy</div>
+        <div class="trusted-card">Goonj</div>
+        <div class="trusted-card">Smile Foundation</div>
+      </div>
+    </section>
+
+    <!-- Two Big Sections -->
+    <section class="big-sections-container">
+      <!-- First Big Section -->
+      <div class="big-section-wrapper">
+        <div class="big-section">
+          <div class="big-section-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h2>For Donors</h2>
+          <p>Share your surplus food and make an immediate impact on those in need. Our secure platform connects you with trusted NGO partners who ensure your donations reach the right communities.</p>
+          <div class="big-section-features">
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Quick and Easy Upload</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Real-time Tracking</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Verified NGO Partners</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Tax Benefits</span>
+            </div>
+          </div>
+          <a href="login.html" class="big-section-button">
+            <i class="fas fa-arrow-right"></i> Start Donating
+          </a>
+        </div>
+      </div>
+
+      <!-- Second Big Section -->
+      <div class="big-section-wrapper">
+        <div class="big-section">
+          <div class="big-section-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h2>For NGOs</h2>
+          <p>Access a steady supply of nutritious food donations to support your community. Our platform streamlines the request process and connects you with reliable food donors in your area.</p>
+          <div class="big-section-features">
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Verified Food Sources</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Flexible Scheduling</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Impact Tracking</span>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Community Support</span>
+            </div>
+          </div>
+          <a href="login.html" class="big-section-button">
+            <i class="fas fa-arrow-right"></i> Join as NGO
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Footer Section -->
+    <section class="company-footer-section">
+      <div class="company-content">
+        <div class="company-info">
+          <h3>MK PVT LTD</h3>
+          <p>Bridging the gap between food donors and communities in need</p>
+        </div>
+
+        <div class="company-contact">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+91-9084496849</span>
+             <span>+91-9286975393</span>
+          </div>
+        </div>
+
+        <div class="company-social">
+          <a href="https://www.facebook.com" target="_blank" class="social-icon facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" class="social-icon instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.whatsapp.com" target="_blank" class="social-icon whatsapp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+           <a href="https://www.linkedin.com" target="_blank" class="social-icon linkedin">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+           <a href="https://www.youtube.com" target="_blank" class="social-icon youtube">
+            <i class="fab fa-youtube"></i>
+          </a>
+         <a href="https://www.pinterest.com" target="_blank" class="social-icon pinterest">
+            <i class="fab fa-pinterest-p"></i>
+          </a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    function selectRole(role) {
+      localStorage.setItem('selectedRole', role);
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Bridge - Donor Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="portal-page donor-theme">
+    <header class="portal-header">
+      <div class="header-content">
+        <div class="logo-section">
+          <h1 class="portal-title">🍱 Donor Portal</h1>
+          <p class="portal-subtitle">Share your surplus food with those in need</p>
+        </div>
+        <div class="user-actions">
+          <button id="logout-button" class="secondary-button">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="portal-main">
+      <div class="portal-welcome">
+        <div class="welcome-card">
+          <h2>Welcome back, <span id="user-name">Donor</span>!</h2>
+          <p>Ready to make a difference? Upload your surplus food and connect with nearby NGOs.</p>
+        </div>
+      </div>
+
+      <div class="upload-section">
+        <div class="section-header">
+          <h3><i class="fas fa-upload"></i> Create New Donation</h3>
+          <p>Upload photos and videos of your food to get started</p>
+        </div>
+
+        <div class="upload-form-container">
+          <form id="donor-form" class="upload-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="donor-name">Your Name</label>
+                <input id="donor-name" type="text" placeholder="Enter your name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="donor-phone">Phone Number</label>
+                <input id="donor-phone" type="tel" placeholder="Enter phone number" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="donor-city">City</label>
+                <input id="donor-city" type="text" placeholder="Enter city" required />
+              </div>
+
+              <div class="form-group">
+                <label for="donor-landmark">Landmark</label>
+                <input id="donor-landmark" type="text" placeholder="Nearby landmark" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="food-name">Food Name/Type</label>
+                <input id="food-name" type="text" placeholder="e.g., Cooked Rice, Dosa, Biriyani, etc." required />
+              </div>
+
+              <div class="form-group">
+                <label for="food-quantity">Quantity</label>
+                <input id="food-quantity" type="text" placeholder="e.g., 5kg, 10 portions, 50 chapatis" required />
+              </div>
+            </div>
+
+            <div class="upload-row">
+              <div class="upload-group">
+                <label for="food-image" class="upload-label">
+                  <i class="fas fa-camera"></i>
+                  Food Photo
+                  <span class="upload-hint">Upload a clear photo of the food with a person</span>
+                </label>
+                <input id="food-image" type="file" accept="image/*" required />
+                <div id="image-preview" class="file-preview"></div>
+              </div>
+
+              <div class="upload-group">
+                <label for="food-video" class="upload-label">
+                  <i class="fas fa-video"></i>
+                  Food Video
+                  <span class="upload-hint">Upload a short video showing the food being prepared/eaten</span>
+                </label>
+                <input id="food-video" type="file" accept="video/*" required />
+                <div id="video-preview" class="file-preview"></div>
+              </div>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <input id="confirm-real" type="checkbox" />
+              <label for="confirm-real">
+                I confirm this is a real image with a person and actual food ready for donation
+              </label>
+            </div>
+
+            <button type="submit" class="primary-button upload-button">
+              <i class="fas fa-magic"></i> Analyze & Send Request
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div id="analysis-result" class="analysis-section hidden">
+        <div class="section-header">
+          <h3><i class="fas fa-chart-line"></i> AI Analysis Results</h3>
+        </div>
+        <div class="analysis-card">
+          <div class="analysis-metrics">
+            <div class="metric-item">
+              <div class="metric-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="metric-content">
+                <h4>Overall Rating</h4>
+                <span id="rating-value" class="metric-value">--</span>
+              </div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-icon">
+                <i class="fas fa-utensils"></i>
+              </div>
+              <div class="metric-content">
+                <h4>Food Quality</h4>
+                <span id="quality-value" class="metric-value">--</span>
+              </div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-icon">
+                <i class="fas fa-weight"></i>
+              </div>
+              <div class="metric-content">
+                <h4>Quantity</h4>
+                <span id="quantity-value" class="metric-value">--</span>
+              </div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="metric-content">
+                <h4>Freshness</h4>
+                <span id="freshness-value" class="metric-value">--</span>
+              </div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="metric-content">
+                <h4>Safety Check</h4>
+                <span id="poison-value" class="metric-value">--</span>
+              </div>
+            </div>
+          </div>
+          <div id="nearby-ngos" class="ngo-list"></div>
+        </div>
+      </div>
+
+      <div class="requests-section">
+        <div class="section-header">
+          <h3><i class="fas fa-list"></i> Your Donation Requests</h3>
+          <p>Track the status of your food donations</p>
+        </div>
+        <div id="donor-request-list" class="request-list"></div>
+      </div>
+    </main>
+
+    <footer class="portal-footer">
+      <div class="footer-content">
+        <div class="contact-info">
+          <p><strong>Helpline:</strong> 9084496849</p>
+          <p><strong>Contact:</strong> Manish Gola</p>
+        </div>
+        <div class="social-icons">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <p>&copy; 2024 Food Bridge. Making food sharing safe and efficient.</p>
+    </footer>
+  </div>
+
+  <script src="donor-portal.js"></script>
+</body>
+</html>

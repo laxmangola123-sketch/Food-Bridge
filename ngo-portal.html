@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Food Bridge - NGO Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="portal-page ngo-theme">
+    <header class="portal-header">
+      <div class="header-content">
+        <div class="logo-section">
+          <h1 class="portal-title">🤝 NGO Portal</h1>
+          <p class="portal-subtitle">Connect with donors and help your community</p>
+        </div>
+        <div class="user-actions">
+          <button id="logout-button" class="secondary-button">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="portal-main">
+      <div class="portal-welcome">
+        <div class="welcome-card">
+          <h2>Welcome back, <span id="ngo-name">NGO Partner</span>!</h2>
+          <p>Check for new donation requests and help distribute food to those who need it most.</p>
+        </div>
+      </div>
+
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-box-open"></i>
+          </div>
+          <div class="stat-content">
+            <h4>Active Requests</h4>
+            <span id="active-requests" class="stat-value">0</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <div class="stat-content">
+            <h4>Completed Today</h4>
+            <span id="completed-today" class="stat-value">0</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-content">
+            <h4>People Helped</h4>
+            <span id="people-helped" class="stat-value">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real-time Notifications Section -->
+      <div class="notifications-section">
+        <div class="section-header">
+          <h3><i class="fas fa-bell"></i> Live Notifications</h3>
+          <p>Get instant alerts when new donations are uploaded near you</p>
+        </div>
+        <div class="notifications-container">
+          <div class="notifications-panel">
+            <div id="notifications-list" class="notifications-list">
+              <div class="no-notifications">
+                <i class="fas fa-inbox"></i>
+                <p>No new notifications yet</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Location Tracking Section -->
+      <div class="location-tracking-section">
+        <div class="section-header">
+          <h3><i class="fas fa-map-location-dot"></i> Live Location Tracking & Map</h3>
+          <p>Track food donations and donors in real-time on the map</p>
+        </div>
+        
+        <div class="location-tracking-container">
+          <!-- Map Display -->
+          <div class="map-wrapper">
+            <div id="location-map" class="location-map">
+              <iframe width="100%" height="500" frameborder="0" style="border:0" 
+                src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d3769.823697506127!2d72.8479!3d19.0144!3m2!1i1024!2i768!4f13.1!2m1!1sNGO%20Food%20Distribution%20Centers!5e0!3m2!1sen!2sin!4v1680000000000" 
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <!-- Tracking Panel -->
+          <div class="tracking-panel">
+            <div class="tracking-header">
+              <h4><i class="fas fa-location-dot"></i> Active Locations</h4>
+              <button id="refresh-locations" class="refresh-btn" title="Refresh locations">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+            </div>
+            
+            <div id="active-locations" class="active-locations-list">
+              <div class="location-item">
+                <div class="location-icon donor">
+                  <i class="fas fa-person"></i>
+                </div>
+                <div class="location-info">
+                  <h5>Donor Location #1</h5>
+                  <p class="location-address">123 Downtown St, City</p>
+                  <p class="location-time"><i class="fas fa-clock"></i> Just now</p>
+                </div>
+                <div class="location-distance">
+                  <span class="distance">0.5 km</span>
+                </div>
+              </div>
+
+              <div class="location-item">
+                <div class="location-icon ngo">
+                  <i class="fas fa-building"></i>
+                </div>
+                <div class="location-info">
+                  <h5>Your NGO Center</h5>
+                  <p class="location-address">456 Community Ave, City</p>
+                  <p class="location-time"><i class="fas fa-map-pin"></i> Pinned</p>
+                </div>
+                <div class="location-distance">
+                  <span class="distance">Current</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="location-stats">
+              <div class="stat">
+                <span class="stat-label">Live Donors</span>
+                <span class="stat-value" id="live-donors-count">3</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Active Routes</span>
+                <span class="stat-value" id="active-routes-count">2</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label">Avg Distance</span>
+                <span class="stat-value" id="avg-distance">1.2 km</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="requests-section">
+        <div class="section-header">
+          <h3><i class="fas fa-list"></i> Donation Requests</h3>
+          <p>Browse and respond to food donation requests in your area</p>
+        </div>
+
+        <div class="requests-filter">
+          <button class="filter-button active" data-filter="all">All Requests</button>
+          <button class="filter-button" data-filter="pending">Pending</button>
+          <button class="filter-button" data-filter="accepted">Accepted</button>
+          <button class="filter-button" data-filter="completed">Completed</button>
+        </div>
+
+        <div id="ngo-request-list" class="request-list">
+          <!-- Requests will be loaded here -->
+        </div>
+      </div>
+
+      <div class="impact-section">
+        <div class="section-header">
+          <h3><i class="fas fa-chart-bar"></i> Your Impact</h3>
+          <p>See how your work is making a difference</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-stats">
+            <div class="impact-item">
+              <div class="impact-number" id="total-donations">0</div>
+              <div class="impact-label">Total Donations Received</div>
+            </div>
+            <div class="impact-item">
+              <div class="impact-number" id="meals-served">0</div>
+              <div class="impact-label">Meals Served</div>
+            </div>
+            <div class="impact-item">
+              <div class="impact-number" id="waste-reduced">0kg</div>
+              <div class="impact-label">Food Waste Reduced</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="portal-footer">
+      <div class="footer-content">
+        <div class="contact-info">
+          <p><strong>Helpline:</strong> 9084496849</p>
+          <p><strong>Contact:</strong> Manish Gola</p>
+        </div>
+        <div class="social-icons">
+          <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <p>&copy; 2024 Food Bridge. Making food sharing safe and efficient.</p>
+    </footer>
+  </div>
+
+  <script src="ngo-portal.js"></script>
+</body>
+</html>
